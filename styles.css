@@ -1,0 +1,436 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Metal Mania', cursive;
+    letter-spacing: 2px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Gradient text effect */
+.gradient-text {
+    background: linear-gradient(45deg, #a78bfa, #ffffff, #a78bfa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #581c87, #000000, #581c87);
+    padding: 40px 0;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+    border-bottom: 2px solid #8b5cf6;
+}
+
+.main-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    text-align: center;
+    color: #a78bfa;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align content to bottom */
+    align-items: center;
+    padding-bottom: 20px; /* Add padding to prevent button from touching edge */
+}
+
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Audio Controls */
+.audio-controls {
+    margin-bottom: 20px; /* Reduced margin to fit at bottom */
+}
+
+.audio-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #8b5cf6, #ef4444);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+.audio-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(139, 92, 246, 0.6);
+    background: linear-gradient(135deg, #a78bfa, #f87171);
+}
+
+.audio-button.playing {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+}
+
+.audio-button.playing:hover {
+    background: linear-gradient(135deg, #f87171, #ef4444);
+    box-shadow: 0 12px 35px rgba(239, 68, 68, 0.6);
+}
+
+/* Slide Indicators */
+.slide-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator:hover {
+    background: rgba(255, 255, 255, 0.75);
+    transform: scale(1.1);
+}
+
+.indicator.active {
+    background: #a78bfa;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(167, 139, 250, 0.6);
+}
+
+/* Biography Section */
+.biography {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #000000, rgba(88, 28, 135, 0.2), #000000);
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 60px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.biography-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.bio-card {
+    background: linear-gradient(135deg, rgba(88, 28, 135, 0.4), rgba(0, 0, 0, 0.6));
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.bio-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(139, 92, 246, 0.6);
+    box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
+}
+
+.bio-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.bio-icon {
+    padding: 12px;
+    background: #8b5cf6;
+    border-radius: 10px;
+    margin-right: 15px;
+    color: white;
+}
+
+.bio-icon i {
+    font-size: 1.5rem;
+}
+
+.bio-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.bio-card p {
+    color: #d1d5db;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Quote Section */
+.quote-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.quote {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-style: italic;
+    color: #a78bfa;
+    margin-bottom: 20px;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.quote-author {
+    font-size: 1.3rem;
+    color: #9ca3af;
+}
+
+/* Tribute Section */
+.tribute-section {
+    background: linear-gradient(135deg, rgba(88, 28, 135, 0.3), rgba(185, 28, 28, 0.3));
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    text-align: center;
+}
+
+.tribute-section h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.tribute-section p {
+    font-size: 1.2rem;
+    color: #d1d5db;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.tribute-emoji {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #a78bfa;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #000000, #581c87, #000000);
+    padding: 50px 0;
+    border-top: 2px solid #8b5cf6;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: #a78bfa;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.social-links a:hover {
+    color: white;
+    transform: translateY(-3px) scale(1.1);
+    background: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}
+
+.footer-copyright {
+    color: #d1d5db;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.tribute-text {
+    color: #a78bfa;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8b5cf6, #ef4444);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #a78bfa, #f87171);
+}
+
+/* Background particle effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .biography-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .bio-card {
+        padding: 20px;
+    }
+    
+    .tribute-section {
+        padding: 30px 20px;
+    }
+    
+    .social-links {
+        gap: 15px;
+    }
+    
+    .social-links a {
+        font-size: 1.5rem;
+        padding: 8px;
+    }
+    
+    .slide-indicators {
+        gap: 6px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-max-width: 480px) {
+    .audio-button {
+        padding: 12px 20px;
+        font-size: 1rem;
+        gap: 8px;
+    }
+    
+    .hero-content {
+        padding: 15px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
